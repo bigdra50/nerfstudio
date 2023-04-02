@@ -70,7 +70,7 @@ def get_vocab_tree() -> Path:
     Returns:
         The path to the vocab tree.
     """
-    vocab_tree_filename = Path(appdirs.user_data_dir("nerfstudio")) / "vocab_tree.fbow"
+    vocab_tree_filename = Path(appdirs.user_data_dir("nerfstudio")).resolve() / "vocab_tree.fbow"
 
     if not vocab_tree_filename.exists():
         r = requests.get("https://demuc.de/colmap/vocab_tree_flickr100K_words32K.bin", stream=True)
